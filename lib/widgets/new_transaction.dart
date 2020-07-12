@@ -12,12 +12,10 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   final _titleController = TextEditingController();
-
   final _amountController = TextEditingController();
-
   DateTime _selectedDate;
 
-  void _submitdata() {
+  void _submitData() {
     if (_amountController.text.isEmpty) {
       return;
     }
@@ -66,17 +64,17 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: _titleController,
-              onSubmitted: (_) => _submitdata(),
-              /* onChanged: (val) {
-                      titleInput = val;
-                    },*/
+              onSubmitted: (_) => _submitData(),
+              // onChanged: (val) {
+              //   titleInput = val;
+              // },
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               controller: _amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) => _submitdata(),
-              //onChanged: (val) => amountInput = val,
+              onSubmitted: (_) => _submitData(),
+              // onChanged: (val) => amountInput = val,
             ),
             Container(
               height: 70,
@@ -93,10 +91,12 @@ class _NewTransactionState extends State<NewTransaction> {
                     textColor: Theme.of(context).primaryColor,
                     child: Text(
                       'Choose Date',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     onPressed: _presentDatePicker,
-                  )
+                  ),
                 ],
               ),
             ),
@@ -104,7 +104,7 @@ class _NewTransactionState extends State<NewTransaction> {
               child: Text('Add Transaction'),
               color: Theme.of(context).primaryColor,
               textColor: Theme.of(context).textTheme.button.color,
-              onPressed: _submitdata,
+              onPressed: _submitData,
             ),
           ],
         ),
